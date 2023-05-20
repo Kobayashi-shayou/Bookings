@@ -13,10 +13,12 @@ return [
     |
     */
 
+    // デフォルトの認証をwebからuserに変更
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -35,8 +37,10 @@ return [
     |
     */
 
+
+    // 認証の方式を指定します。
     'guards' => [
-        'web' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -59,16 +63,12 @@ return [
     |
     */
 
+    // 認証に使用するデータベースやモデルを指定します。
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
@@ -86,11 +86,12 @@ return [
     |
     */
 
+    // パスワードリセットに使用するブローカーを指定します。
     'passwords' => [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 2880,
             'throttle' => 60,
         ],
     ],

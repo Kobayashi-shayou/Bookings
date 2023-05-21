@@ -44,16 +44,14 @@ class LoginController extends Controller
 
     /**
      * Guardの認証方法を指定
-     *
      */
-    protected function guard():Guard
+    protected function guard(): Guard
     {
         return \Auth::guard('user');
     }
 
     /**
      * ログイン画面
-     *
      */
     public function showLoginForm(): View
     {
@@ -62,16 +60,13 @@ class LoginController extends Controller
 
     /**
      * ログアウト処理
-     *
-     *
      */
-    public function logout(Request $request):RedirectResponse
+    public function logout(Request $request): RedirectResponse
     {
         \Auth::guard('user')->logout();
 
         return $this->loggedOut($request);
     }
-
 
     /**
      * ログアウトした時のリダイレクト先

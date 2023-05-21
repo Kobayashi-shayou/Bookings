@@ -20,5 +20,17 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-    }
+            // 本番環境
+            if (config('app.env') === 'production') {
+                // $this->call([
+                // ]);
+    
+            } else {
+                // テスト環境
+                $this->call([
+                    UserSeeder::class,
+                    AdminSeeder::class,
+                ]);
+            }
+        }
 }

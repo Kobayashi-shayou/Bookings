@@ -19,7 +19,6 @@ return [
         'passwords' => 'users',
     ],
 
-
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -37,12 +36,16 @@ return [
     |
     */
 
-
     // 認証の方式を指定します。
     'guards' => [
         'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        // admin用を追加
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
         ],
     ],
 
@@ -69,6 +72,13 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        // admin用を追加
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+
     ],
 
     /*
@@ -94,6 +104,15 @@ return [
             'expire' => 2880,
             'throttle' => 60,
         ],
+
+        // admin用を追加
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 2880,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*

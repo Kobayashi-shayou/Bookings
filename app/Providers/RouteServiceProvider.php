@@ -20,6 +20,9 @@ class RouteServiceProvider extends ServiceProvider
     // Userのリダイレクト先
     public const HOME = '/user/home';
 
+    // adminのリダイレクト先
+    public const ADMIN_HOME = '/admin/home';
+
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
      *
@@ -41,6 +44,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('user')
                 ->name('user.')
                 ->group(base_path('routes/web_user.php'));
+
+            Route::middleware('web')
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(base_path('routes/web_admin.php'));
 
         });
     }

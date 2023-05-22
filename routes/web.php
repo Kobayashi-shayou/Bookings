@@ -14,9 +14,10 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-
 // トップページ
 Route::get('/top', [HomeController::class, 'top'])->name('top');
+// 案内ページ
+Route::get('/info', [HomeController::class, 'info'])->name('info');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

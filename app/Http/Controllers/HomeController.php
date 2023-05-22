@@ -18,14 +18,20 @@ class HomeController extends Controller
         // $this->middleware('auth');
     }
 
-    public function index() :View
+    public function index(): View
     {
         return view('home');
     }
 
     // トップページ
-    public function top() :View
+    public function top(): View
     {
         return view('top');
+    }
+
+    // 案内ページ
+    public function info(): View
+    {
+        return view('info');
     }
 }

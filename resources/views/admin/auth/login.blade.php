@@ -34,10 +34,10 @@
                             </button>
                         </div>
                     </form>
-                    <div class="text-center">
+                    {{-- <div class="text-center">
                         <a href="{{ route('admin.password.request') }}">パスワードを忘れた方</a>
                         <br>
-                    </div>
+                    </div> --}}
 
                     @if (app()->environment('local'))
                         <a href="{{ route('admin_dev_login') }}" class="btn btn-dark">開発中ログイン</a>

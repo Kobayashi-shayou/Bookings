@@ -20,9 +20,8 @@ class HomeController extends Controller
 
     /**
      * Show the application dashboard.
-     *
      */
-    public function index():View
+    public function index(): View
     {
         return view('admin.home');
     }
